@@ -29,7 +29,7 @@ namespace TcpServer
                     result.AsyncWaitHandle.WaitOne();
                 }
 
-                server.Stop();
+                //server.Stop();
             }
             catch (Exception ex)
             {
@@ -50,10 +50,10 @@ namespace TcpServer
                     var requestLine = reader.ReadLine();
                     WriteLine($"Request: {requestLine}");
 
-                    var responseFile = Path.Combine(@"c:\home\site\wwwroot", string.Join("\\", requestLine.Split(' ')[1].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)));
+                    var responseFile = Path.Combine(@"d:\home\site\wwwroot", string.Join("\\", requestLine.Split(' ')[1].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)));
                     if (!File.Exists(responseFile))
                     {
-                        responseFile = @"c:\home\site\wwwroot\NotFound.txt";
+                        responseFile = @"d:\home\site\wwwroot\NotFound.txt";
                     }
 
                     var response = File.ReadAllBytes(responseFile);
@@ -72,7 +72,7 @@ namespace TcpServer
             try
             {
                 Console.WriteLine($"{DateTime.UtcNow:s} {message}");
-                File.AppendAllLines(@"c:\home\site\wwwroot\TcpServer.log", new[] { $"{DateTime.UtcNow:s} {message}" });
+                File.AppendAllLines(@"d:\home\site\wwwroot\TcpServer.log", new[] { $"{DateTime.UtcNow:s} {message}" });
             }
             catch
             {
