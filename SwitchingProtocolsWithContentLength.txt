@@ -1,0 +1,7 @@
+HTTP/1.1 101 Switching Protocols
+date: Tue, 01 Nov 2022 21:36:18 GMT
+server: TcpServer/1.0
+Connection: Upgrade
+Upgrade: websocket
+Content-Length: 0
+
